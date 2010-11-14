@@ -1,4 +1,4 @@
-require 'ruby-aozora-parser'
+require 'aozora_parser'
 require 'rspec'
 
 # Requires supporting files with custom matchers and macros, etc,

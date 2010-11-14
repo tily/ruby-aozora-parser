@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+$:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
+# TODO: 台詞(「〜」) の扱いをどうするか
+# TODO: ルビを削除するオプション
+
+require 'aozora_parser'
+require 'stringio'
+require 'optparse'
+
+def parse_options!(args)
+  options = {}
+  OptionParser.new do |opt|
+    opt.on('-s', '--sentences') {|v| options[:sentences] = v }
+    opt.on('-r', '--ruby-left') {|v| options[:ruby_left] = v }
+    opt.parse!
+  end
+  options
+end
+
+def main(args)
+  options = parse_options!(args)
+
+  file = args[0]
+  if file && File.exist?(file)
+    io = File.open(file)
+  else
+    io = StringIO.new(STDIN.read)
+  end
+
+  parser = AozoraParser.new
+  parser.parse!(io)
+
+  if options[:sentences]
+    puts parser.sentences
+  else
+    puts parser.lines
+  end
+end
+
+main(ARGV)

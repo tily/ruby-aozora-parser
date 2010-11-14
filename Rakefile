@@ -13,8 +13,8 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "ruby-aozora-parser"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{青空文庫テキストファイル用のシンプルなパーサ}
+  gem.description = %Q{青空文庫テキストファイル用のシンプルなパーサ}
   gem.email = "tily05@gmail.com"
   gem.homepage = "http://github.com/tily/ruby-aozora-parser"
   gem.authors = ["tily"]
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "ruby-aozora-parser #{version}"
+  rdoc.title = "aozora_parser #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
